@@ -12,6 +12,7 @@ import React, { useLayoutEffect } from "react";
 import tw from "twrnc";
 import Icon from "react-native-vector-icons/AntDesign";
 import Categories from "../components/Categorie.js";
+import FeaturedRow from "../components/FeaturedRow.js";
 
 const HomeScreen = () => {
   return (
@@ -55,6 +56,24 @@ const HomeScreen = () => {
         }}
       >
         <Categories />
+
+        <FeaturedRow
+          id="123"
+          title="Feature"
+          description="Paid placements from our partners"
+        />
+
+        <FeaturedRow
+          id="1234"
+          title="Feature"
+          description="Paid placements from our partners"
+        />
+
+        <FeaturedRow
+          id="12345"
+          title="Feature"
+          description="Paid placements from our partners"
+        />
       </ScrollView>
     </SafeAreaView>
   );
