@@ -8,13 +8,36 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import tw from "twrnc";
 import Icon from "react-native-vector-icons/AntDesign";
 import Categories from "../components/Categorie.js";
 import FeaturedRow from "../components/FeaturedRow.js";
+import sanityClient from "../sanity.js";
 
 const HomeScreen = () => {
+
+  const [featuredCategories, setFeaturedCategories] = useState([])
+
+  useEffect(() => {}, [
+    sanityClient
+      .fetch(
+        `
+      *[_type == "featured"] {
+        ...,
+        restaurants[]->{
+          ...,
+          dishes[] ->
+        }
+      }`
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      }),
+  ]);
+
+  // console.log(featuredCategories);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={tw`flex-row pb-3 items-center mx-4`}>
@@ -57,23 +80,15 @@ const HomeScreen = () => {
       >
         <Categories />
 
-        <FeaturedRow
-          id="123"
-          title="Feature"
-          description="Paid placements from our partners"
+        {featuredCategories?.map((category) => (
+          <FeaturedRow
+          key={category._id}
+          id={category._id}
+          title={category.name}
+          description={category.short_description}
         />
+        ))}
 
-        <FeaturedRow
-          id="1234"
-          title="Feature"
-          description="Paid placements from our partners"
-        />
-
-        <FeaturedRow
-          id="12345"
-          title="Feature"
-          description="Paid placements from our partners"
-        />
       </ScrollView>
     </SafeAreaView>
   );
