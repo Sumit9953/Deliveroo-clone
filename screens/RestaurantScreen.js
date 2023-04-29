@@ -13,6 +13,7 @@ import { urlFor } from "../sanity";
 
 import Icon from "react-native-vector-icons/Entypo";
 import IconA from "react-native-vector-icons/AntDesign";
+import DishRow from "../components/DishRow";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
