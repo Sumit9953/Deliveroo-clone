@@ -71,14 +71,4 @@ const DishRow = ({ id, name, description, image, price }) => {
 };
 
 
-
-const styles = StyleSheet.create({
-  box: {
-    borderWidth: "1px",
-    backgroundColor: "white",
-    padding: "4px",
-    borderColor: "rgb(209 213 219)",
-  }
-})
-
 export default DishRow;

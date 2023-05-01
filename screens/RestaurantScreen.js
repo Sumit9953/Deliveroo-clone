@@ -14,6 +14,7 @@ import { urlFor } from "../sanity";
 import Icon from "react-native-vector-icons/Entypo";
 import IconA from "react-native-vector-icons/AntDesign";
 import DishRow from "../components/DishRow";
+import BaskteIcon from "../components/BaskteIcon";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -33,6 +34,8 @@ const RestaurantScreen = () => {
   } = useRoute();
 
   return (
+    <>
+    <BaskteIcon />
     <ScrollView>
       <View style={tw`relative`}>
         <Image
@@ -82,7 +85,7 @@ const RestaurantScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <View>
+      <View style={tw`pb-36`}>
         <Text style={tw`px-4 pt-6 mb-3 font-bold text-xl`}>Menu</Text>
 
         {dishes.map((dish) => (
@@ -97,6 +100,7 @@ const RestaurantScreen = () => {
         ))}
       </View>
     </ScrollView>
+    </>
   );
 };
 
