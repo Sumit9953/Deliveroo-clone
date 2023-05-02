@@ -35,7 +35,7 @@ const PreparingOrderScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight,
+    // marginTop: StatusBar.currentHeight,
     backgroundColor: "white",
     paddingTop: 5,
     backgroundColor: "#00CCBB",
