@@ -52,6 +52,7 @@ const BasketScreen = () => {
             </Text>
           </View>
           <TouchableOpacity
+            onPress={navigation.goBack}
             style={tw`rounded-full bg-[#00CCBB] absolute top-5 right-5`}
           >
             <Icon name="cross" color="#fff" size={40} />
@@ -121,7 +122,7 @@ const BasketScreen = () => {
           </Text>
         </View>
 
-        <TouchableOpacity style={tw`rounded-lg mt-4 bg-[#00CCBB] p-4`}>
+        <TouchableOpacity onPress={() => navigation.navigate('PreparingOrderScreen')} style={tw`rounded-lg mt-4 bg-[#00CCBB] p-4`}>
             <Text style={tw`text-center text-white text-lg font-bold`}>Place Order</Text>
         </TouchableOpacity>
         </View>
